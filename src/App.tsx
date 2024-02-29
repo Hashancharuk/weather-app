@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.js'
 import Navbar from './assests/components/navBar';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min.js'
+import image from './assests/w.jpg'
+import './App.css';
 
 function App() {
   const [city, setCity] = useState("");
@@ -25,26 +27,32 @@ function App() {
 
   return (
     <div>
-      <div>
-        <Navbar/>
-    </div>
-      <div>
+      <Navbar />
+      <img src={image} alt="Weather" className="custom-image" />
+      <div className="container col-8">
         <h1>Weather Forecast</h1>
-        <form>
-          <label htmlFor="city">City:</label>
-          <input
-            type="text"
-            id="city"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Enter your city"
-          />
-          <button type="button" onClick={handleSearch}>Search</button>
+        <form className="row g-3">
+          <div className="col-auto">
+            <label htmlFor="city" className="visually-hidden">City</label>
+            <input
+              type="text"
+              className="form-control"
+              id="city"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Enter your city"
+            />
+          </div>
+          <div className="col-auto">
+            <button type="button" className="btn btn-primary mb-3" onClick={handleSearch}>Search</button>
+          </div>
         </form>
-        <div>
-          <p>Condition: {condition}</p>
-          <p>Temperature: {temperature}°C</p>
-          <p>Local Time: {localtime}</p>
+        <div className="row">
+          <div className="col">
+            <p>Condition: {condition}</p>
+            <p>Temperature: {temperature}°C</p>
+            <p>Local Time: {localtime}</p>
+          </div>
         </div>
       </div>
     </div>

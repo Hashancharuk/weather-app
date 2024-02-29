@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Navbar from './assests/components/navBar';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 function App() {
   const [city, setCity] = useState("");
@@ -23,7 +26,10 @@ function App() {
   return (
     <div>
       <div>
-        <h1>Check the Weather Forecast</h1>
+        <Navbar/>
+    </div>
+      <div>
+        <h1>Weather Forecast</h1>
         <form>
           <label htmlFor="city">City:</label>
           <input
